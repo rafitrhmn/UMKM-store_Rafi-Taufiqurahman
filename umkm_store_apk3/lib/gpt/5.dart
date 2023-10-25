@@ -242,12 +242,12 @@ class _HomeState extends State<Home> {
       floatingActionButtonLocation: showBtmAppBr
           ? FloatingActionButtonLocation.centerDocked
           : FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(
-          Icons.add,
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   child: const Icon(
+      //     Icons.add,
+      //   ),
+      // ),
       bottomNavigationBar: AnimatedContainer(
         child: BottomAppBar(
           notchMargin: 8.0,
