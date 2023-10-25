@@ -13,4 +13,11 @@ class User extends ChangeNotifier {
     password = newPassword;
     notifyListeners();
   }
+
+  List<String> imageUrls = [];
+
+  void setImageUrls(List<String> urls) {
+    imageUrls = urls;
+    notifyListeners();
+  }
 }

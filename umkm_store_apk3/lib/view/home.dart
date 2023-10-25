@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:umkm_store_apk3/view/box-title.dart';
-import 'package:umkm_store_apk3/view/search_ui.dart';
-
-import 'card-list-view.dart';
+import 'package:umkm_store_apk3/view/page1/search_ui.dart';
+import 'page1/card_list_ui.dart';
+import 'page1/slider_ui.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -27,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               const Text(
                 'UMKM Store',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black, fontFamily: 'Montserrat'),
               ),
             ],
           ),
@@ -38,15 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Search(),
-              BoxTitle(),
+              const SizedBox(height: 20),
+              SearchWidget(),
+              CustomSizedBoxSlider(),
               const SizedBox(height: 15),
               const Padding(
                 padding: EdgeInsets.only(
                     left: 27), // Sesuaikan padding sesuai kebutuhan Anda
                 child: Text(
-                  'Daftar UMKM ',
+                  'Produk dan Jasa ',
                   style: TextStyle(
+                    fontFamily: 'Montserrat',
                     fontSize: 23,
                     color: Colors.black,
                     wordSpacing: 2,
@@ -65,36 +68,3 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('UMKM Store', style: TextStyle(color: Colors.black)),
-//         centerTitle: true,
-//         backgroundColor: Colors.white,
-//       ),
-//       body: const Center(
-//         child: Text('Ini adalah halaman utama'),
-//       ),
-//     );
-//   }
-// }
-
-// appBar: AppBar(
-//         title: Row(
-//           children: [
-//             Image.asset(
-//               'assets/image/es-kenapa-muda.png', // Ganti dengan path ke gambar Anda
-//               height: 40, // Atur tinggi gambar sesuai kebutuhan
-//               width: 40, // Atur lebar gambar sesuai kebutuhan
-//             ),
-//             const SizedBox(width: 8), // Jarak antara gambar dan teks
-//             const Text(
-//               'ES kenapa muda',
-//               style: TextStyle(fontFamily: 'Poppins', fontSize: 20),
-//             ),
-//           ],
-//         ),
-//       ),
