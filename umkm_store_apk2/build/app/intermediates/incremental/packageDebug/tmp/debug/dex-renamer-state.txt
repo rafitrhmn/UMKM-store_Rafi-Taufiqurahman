@@ -1,0 +1,4 @@
+#Fri Oct 20 22:19:44 WIB 2023
+base.0=D\:\\GitHub\\UMKM-store_Rafi-Taufiqurahman\\umkm_store_apk2\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
