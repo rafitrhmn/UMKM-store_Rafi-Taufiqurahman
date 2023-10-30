@@ -84,30 +84,41 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:umkm_store_apk3/views/activtypage/activity_page.dart';
-import 'package:umkm_store_apk3/views/homepage/homepage.dart';
+import 'package:umkm_store_apk3/views/activtypage/03-activity_page.dart';
+import 'package:umkm_store_apk3/views/homepage/02-homepage.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
+  final int selectedIndex;
+
+  const CustomBottomNavigationBar({super.key, required this.selectedIndex});
+
   @override
   _CustomBottomNavigationBarState createState() =>
       _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectedIndex;
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      print(_selectedIndex);
       if (_selectedIndex == 0) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MyHomePage()),
+          MaterialPageRoute(builder: (context) => const MyHomePage()),
         );
       } else if (_selectedIndex == 1) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ActivityPage()),
+          MaterialPageRoute(builder: (context) => const ActivityPage()),
         );
         // Navigator.pushNamed(context, '/activity');
       }
@@ -117,14 +128,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
+      items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.receipt_long_rounded),
-          label: 'Activity',
+          label: 'Aktivitas',
         ),
       ],
       currentIndex: _selectedIndex,

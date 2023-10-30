@@ -44,6 +44,7 @@ dependencies:
   html: ^0.15.4
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.3
+  flutter_loadingindicator: ^1.0.1
   # g_nav: ^0.3.0
 
 dev_dependencies:
@@ -71,6 +72,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/icon-belanja.png
+    - assets/images/umkm.jpg
+    - assets/images/umkm2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -87,6 +90,7 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat/static/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat/static/Montserrat-ExtraLight.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

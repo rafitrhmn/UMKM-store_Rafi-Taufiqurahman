@@ -74,6 +74,8 @@ import 'package:umkm_store_apk3/views/detailpage/search_tampil_ui.dart';
 class SearchWidget extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
 
+  SearchWidget({super.key});
+
   // Mencari data berdasarkan nama toko
   void searchStore(BuildContext context, String storeName) async {
     var query = FirebaseFirestore.instance
