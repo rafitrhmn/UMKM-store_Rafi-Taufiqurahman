@@ -8,10 +8,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,17 +26,19 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
+  MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firestore Image Demo'),
+        title: const Text('Firestore Image Demo'),
       ),
       body: StreamBuilder(
         stream: firestore.collection('produk').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -46,6 +50,7 @@ class MyHomePage extends StatelessWidget {
               return ListTile(
                 title: Text(products['nama_produk']),
                 subtitle: Text(products['harga']),
+                // ignore: unnecessary_null_comparison
                 leading: imageUrl != null
                     ? Image.network(imageUrl)
                     : Image.asset('assets/images/icon-belanja.png'),

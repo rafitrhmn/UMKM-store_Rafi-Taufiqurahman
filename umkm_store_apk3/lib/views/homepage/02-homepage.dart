@@ -7,9 +7,12 @@ import 'card_list_ui.dart';
 import 'slider_ui.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key});
+  const MyHomePage({
+    super.key,
+  });
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
@@ -40,9 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'assets/images/icon-belanja.png', // Ganti dengan path ke gambar logo Anda
+              'assets/images/icon-belanja.png',
               fit: BoxFit.contain,
-              height: 32, // Sesuaikan ukuran yang diinginkan
+              height: 32,
             ),
             const SizedBox(
               width: 8,
@@ -57,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
       ),
       body: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,8 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   CustomSizedBoxSlider(),
                   const SizedBox(height: 15),
                   const Padding(
-                    padding: EdgeInsets.only(
-                        left: 27), // Sesuaikan padding sesuai kebutuhan Anda
+                    padding: EdgeInsets.only(left: 27),
                     child: Text(
                       'Produk dan Jasa ',
                       style: TextStyle(
@@ -90,9 +92,23 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(
-          Icons.chat_bubble_rounded,
-          color: Colors.white,
+        backgroundColor: Colors.black38,
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.chat,
+              color: Colors.white,
+            ),
+            SizedBox(height: 4),
+            Text(
+              'AI Chat',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 9,
+              ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: CustomBottomNavigationBar(selectedIndex: nopage),

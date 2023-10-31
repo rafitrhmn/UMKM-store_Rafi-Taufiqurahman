@@ -11,6 +11,7 @@ class ActivityProvider extends ChangeNotifier {
       'no_hp': '086664756475',
       'alamat': 'jl.amula rahayu',
       'metode_pembayaran': 'Dana',
+      'waktu': '28-10-2023 08:30'
     }
   ];
 
@@ -19,6 +20,11 @@ class ActivityProvider extends ChangeNotifier {
   void addData(Map<String, dynamic> data) {
     _dataactivity.add(data);
     // print(_dataactivity);
+    notifyListeners();
+  }
+
+  void removeData(int index) {
+    _dataactivity.removeAt(index);
     notifyListeners();
   }
 

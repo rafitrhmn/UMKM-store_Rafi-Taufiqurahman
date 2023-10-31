@@ -42,7 +42,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
           headers: {
             'Content-Type': 'application/json',
             'Authorization':
-                'Bearer //apimu disini ' // bearer nyaa jangan dihapus,
+                'Bearer //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' // bearer nyaa jangan dihapus,
           },
           body: jsonEncode({
             'model': 'text-davinci-003',

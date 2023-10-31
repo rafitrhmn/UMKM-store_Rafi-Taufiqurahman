@@ -8,7 +8,6 @@ import 'package:umkm_store_apk3/views/homepage/02-homepage.dart';
 import 'package:umkm_store_apk3/views/pageLogin/01-login_ui.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:umkm_store_apk3/firebase_options.dart';
-// import 'login_viewModel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

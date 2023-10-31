@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-// import 'package:umkm_store_apk3/view_models/activity_viewModel.dart';
 import 'package:umkm_store_apk3/views/widgets/battom_navbar_detail.dart';
 
 class DetailPage extends StatefulWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:umkm_store_apk3/view_models/activity_viewModel.dart';
+import 'package:intl/intl.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   final Map<String, dynamic> data; //field menampung data
@@ -16,6 +17,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   final TextEditingController _inputNoHpController = TextEditingController();
   final TextEditingController _inputAlamatController = TextEditingController();
   String? _selectedValue;
+  String formattedDate = DateFormat('dd-MM-yyyy HH:mm').format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -284,6 +286,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                             'no_hp': _inputNoHpController.text,
                             'alamat': _inputAlamatController.text,
                             'metode_pembayaran': _selectedValue,
+                            'waktu': formattedDate,
                           };
                           activityProvider.addData(orderData);
                           Navigator.pop(context);

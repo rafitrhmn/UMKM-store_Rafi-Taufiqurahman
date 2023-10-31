@@ -1,11 +1,10 @@
-///kode ketiga
-// ignore_for_file: prefer_const_constructors
+// ///kode ketiga
+// // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:umkm_store_apk3/view_models/activity_viewModel.dart';
 import 'package:umkm_store_apk3/views/widgets/battom_navbar_ui.dart';
-// import 'path_to_your_activity_provider.dart';
 
 class ActivityPage extends StatefulWidget {
   const ActivityPage({Key? key}) : super(key: key);
@@ -22,14 +21,14 @@ class _ActivityPageState extends State<ActivityPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 60,
             left: 20,
             right: 20,
           ),
           child: Column(
             children: [
-              Align(
+              const Align(
                 alignment: Alignment.center,
                 child: Text(
                   'Aktivitas',
@@ -45,13 +44,13 @@ class _ActivityPageState extends State<ActivityPage> {
                       activityProvider.use();
                   return ListView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: dataactivity.length,
                     itemBuilder: (context, index) {
                       Map<String, dynamic> data = dataactivity[index];
                       return Container(
-                        margin: EdgeInsets.symmetric(vertical: 5),
-                        height: 150,
+                        margin: const EdgeInsets.symmetric(vertical: 5),
+                        height: 190,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           color: Colors.grey.shade100,
@@ -61,7 +60,7 @@ class _ActivityPageState extends State<ActivityPage> {
                               color: Colors.grey.withOpacity(0.4),
                               spreadRadius: 5,
                               blurRadius: 7,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
@@ -69,12 +68,12 @@ class _ActivityPageState extends State<ActivityPage> {
                           children: [
                             Container(
                               height: 100,
-                              padding: EdgeInsets.only(top: 2),
+                              padding: const EdgeInsets.only(top: 2),
                               width: MediaQuery.of(context).size.width / 4,
-                              margin: EdgeInsets.only(left: 10),
+                              margin: const EdgeInsets.only(left: 10),
                               child: ClipRRect(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(16)),
+                                    const BorderRadius.all(Radius.circular(16)),
                                 child: Image.network(
                                   "${data['gambar_url']}",
                                   height: 50,
@@ -85,63 +84,111 @@ class _ActivityPageState extends State<ActivityPage> {
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width / 1.8,
-                              margin: EdgeInsets.only(left: 9),
+                              margin: const EdgeInsets.only(left: 9),
                               child: Padding(
-                                padding:
-                                    EdgeInsets.only(left: 2, top: 15, right: 7),
+                                padding: const EdgeInsets.only(
+                                    left: 2, top: 15, right: 7),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
+                                      '${data['waktu']}',
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Montserrat-ExtraLight200',
+                                        fontStyle: FontStyle.italic,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 3,
+                                    ),
+                                    Text(
                                       '${data['nama_produk']}',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'Montserrat',
                                           fontSize: 16),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 3,
                                     ),
                                     Text(
                                       'nama pesanan : ${data['nama_pesanan']}',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 14,
                                         fontFamily: 'Montserrat-ExtraLight200',
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 0.5,
                                     ),
                                     Text(
                                       'nomor handphone : ${data['no_hp']}',
-                                      style: TextStyle(fontSize: 14),
+                                      style: const TextStyle(fontSize: 14),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 0.5,
                                     ),
                                     Text(
                                       'alamat : ${data['alamat']}',
-                                      style: TextStyle(fontSize: 14),
+                                      style: const TextStyle(fontSize: 14),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 0.5,
                                     ),
                                     Text(
                                       'metode pembayaran : ${data['metode_pembayaran']}',
-                                      style: TextStyle(fontSize: 14),
+                                      style: const TextStyle(fontSize: 14),
                                     ),
-                                    // Text('Alamat: ${data['alamat']}'),
-                                    // Text('Nomor Handphone: ${data['no_hp']}'),
-                                    // Text('Harga: ${data['harga']}'),
-                                    // Text(
-                                    //     'Nama Pesanan: ${data['nama_pesanan']}'),
-                                    // Text(
-                                    //     'Metode Pembayaran: ${data['metode_pembayaran']}'),
+                                    const SizedBox(
+                                      height: 1,
+                                    ),
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                title: const Text('Konfirmasi'),
+                                                content: const Text(
+                                                    'Apakah Anda yakin ingin menghapus aktivitas ini?'),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: const Text('Batal'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      activityProvider
+                                                          .removeData(index);
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: const Text('Hapus'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                        child: const Text(
+                                          'Hapus Aktivitas',
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       );
